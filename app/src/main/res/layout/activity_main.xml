@@ -15,7 +15,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Happy Birthday"
-            android:textColor="#ff8000"/>
+            android:textSize="24sp"
+            android:textColor="#FF8F00"/>
     </LinearLayout>
 
     <LinearLayout
@@ -42,6 +43,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="HOORAY!!" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Frosting" />
 
         <Button
             android:id="@+id/button2"
