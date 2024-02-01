@@ -38,24 +38,70 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="HOORAY!!" />
+            android:layout_height="match_parent"
+            android:layout_weight="99999"
+            android:orientation="vertical">
 
-        <Switch
-            android:id="@+id/switch1"
+            <TextView
+                android:id="@+id/candlesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="How Many Candles?" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:indeterminate="false"
+                android:max="10"
+                android:progress="0"
+                android:textAlignment="gravity"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-            android:text="Frosting" />
+            <Switch
+                android:id="@+id/frostingButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Frosting" />
 
-        <Button
-            android:id="@+id/button2"
+            <Switch
+                android:id="@+id/candlesButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Candles" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="yay..." />
+            android:layout_height="match_parent"
+            android:layout_weight="@integer/material_motion_duration_long_1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/blowButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="BLOW OUT" />
+
+            <Button
+                android:id="@+id/goodbyeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="GOODBYE" />
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
