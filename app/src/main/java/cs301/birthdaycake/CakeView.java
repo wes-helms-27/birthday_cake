@@ -25,6 +25,10 @@ public class CakeView extends SurfaceView {
     public static final float wickWidth = 6.0f;
     public static final float outerFlameRadius = 30.0f;
     public static final float innerFlameRadius = 15.0f;
+
+    //stores x and y of touch - Sydney
+    public float touchx;
+    public float touchy;
     /* These are the paints we'll use to draw the birthday cake below */
     Paint cakePaint = new Paint();
     Paint frostingPaint = new Paint();
@@ -32,6 +36,8 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint positionPaint = new Paint();
+
     /* Instance variables for Lab 3 */
     private CakeModel cakeData = new CakeModel();
 
@@ -59,6 +65,8 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        positionPaint.setColor(Color.RED);
+        positionPaint.setTextSize(50.0f);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
@@ -129,7 +137,13 @@ public class CakeView extends SurfaceView {
             }
         }
 
+        //draw the text that shows the position of the touch
+        canvas.drawText("(x,y): (" + this.touchx + ", " + this.touchy + ")", 1550.0f, 800.0f, positionPaint);
+
+
+
     }//onDraw
+
 
     public CakeModel getCakeModel() {
         return this.cakeData;
