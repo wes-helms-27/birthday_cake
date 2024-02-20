@@ -25,6 +25,10 @@ public class CakeView extends SurfaceView {
     public static final float wickWidth = 6.0f;
     public static final float outerFlameRadius = 30.0f;
     public static final float innerFlameRadius = 15.0f;
+
+    public float touchx;
+    public float touchy;
+
     /* These are the paints we'll use to draw the birthday cake below */
     Paint cakePaint = new Paint();
     Paint frostingPaint = new Paint();
@@ -32,7 +36,9 @@ public class CakeView extends SurfaceView {
     Paint outerFlamePaint = new Paint();
     Paint innerFlamePaint = new Paint();
     Paint wickPaint = new Paint();
+    Paint balloonPaint = new Paint();
     /* Instance variables for Lab 3 */
+    Paint stringPaint = new Paint();
     private CakeModel cakeData = new CakeModel();
 
 
@@ -59,9 +65,22 @@ public class CakeView extends SurfaceView {
         innerFlamePaint.setStyle(Paint.Style.FILL);
         wickPaint.setColor(Color.BLACK);
         wickPaint.setStyle(Paint.Style.FILL);
+        // balloon
+        balloonPaint.setColor(Color.BLUE);
+        stringPaint.setColor(Color.BLACK);
 
         setBackgroundColor(Color.WHITE);  //better than black default
 
+    }
+
+    /**
+     * draws a blue balloon at a specified position.
+     */
+    public void drawBalloon(Canvas canvas, float x, float y){
+        //draw the rubber of balloon
+        canvas.drawOval(x-15, y-20, x + 30, y + 40, balloonPaint);
+        //draw a string
+        canvas.drawLine(x+5, y+40, x, y+150, stringPaint);
     }
 
     /**
@@ -128,6 +147,10 @@ public class CakeView extends SurfaceView {
                 drawCandle(canvas, (cakeLeft - (candleWidth / 2) + (i * (cakeWidth / (getCakeModel().numCandles + 1)))), cakeTop);
             }
         }
+
+
+        //draw balloon
+        drawBalloon(canvas, touchx, touchy);
 
     }//onDraw
 
