@@ -3,6 +3,7 @@ package cs301.birthdaycake;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
@@ -29,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
         SeekBar numCandles = findViewById(R.id.candlesSeekBar);
         numCandles.setOnSeekBarChangeListener(cakeControl);
+
+        SurfaceView surfsUp= findViewById(R.id.cakeview);
+        surfsUp.setOnTouchListener(cakeControl);
 
     }
 

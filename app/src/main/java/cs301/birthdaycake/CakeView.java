@@ -36,6 +36,14 @@ public class CakeView extends SurfaceView {
     private CakeModel cakeData = new CakeModel();
 
 
+    Paint verde = new Paint();
+    Paint rojo = new Paint();
+    int rectWid = 30;
+    int rectHigh = 25;
+
+    float rectX = 0;
+    public float rectY = 0;
+
     /**
      * ctor must be overridden here as per standard Java inheritance practice.  We need it
      * anyway to initialize the member variables
@@ -61,6 +69,11 @@ public class CakeView extends SurfaceView {
         wickPaint.setStyle(Paint.Style.FILL);
 
         setBackgroundColor(Color.WHITE);  //better than black default
+
+        verde.setColor(0xFF92D050);
+        verde.setStyle(Paint.Style.FILL);
+        rojo.setColor(0xFFC00000);
+        rojo.setStyle(Paint.Style.FILL);
 
     }
 
@@ -128,8 +141,15 @@ public class CakeView extends SurfaceView {
                 drawCandle(canvas, (cakeLeft - (candleWidth / 2) + (i * (cakeWidth / (getCakeModel().numCandles + 1)))), cakeTop);
             }
         }
+        canvas.drawRect(rectX, rectY, rectX + (float) rectWid, rectY - (float) rectHigh, rojo);
+        canvas.drawRect(rectX, rectY, rectX - (float) rectWid, rectY - (float) rectHigh, verde);
+        canvas.drawRect(rectX, rectY, rectX - (float) rectWid, rectY + (float) rectHigh, rojo);
+        canvas.drawRect(rectX, rectY, rectX + (float) rectWid, rectY + (float) rectHigh, verde);
 
     }//onDraw
+
+    public void setRectX(float x){this.rectX=x;}
+    public void setRectY(float y){this.rectY=y;}
 
     public CakeModel getCakeModel() {
         return this.cakeData;
