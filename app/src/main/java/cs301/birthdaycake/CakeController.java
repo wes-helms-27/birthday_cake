@@ -60,4 +60,17 @@ public class CakeController implements
 
         return false;
     }
+
+    /** whenever the user touches the surface view */
+    @Override
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        Log.d("face", "touch!");
+        this.controlView.touchx = motionEvent.getX();
+        this.controlView.touchy = motionEvent.getY();
+
+        controlView.invalidate();
+
+        return false;
+
+    }
 }
