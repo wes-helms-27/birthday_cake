@@ -50,17 +50,6 @@ public class CakeController implements
 
     }
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        Log.d("cake", "Balloon" );
-        this.controlView.touchx = event.getX();
-        this.controlView.touchy = event.getY();
-
-        controlView.invalidate();
-
-        return false;
-    }
-
     /** whenever the user touches the surface view */
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
