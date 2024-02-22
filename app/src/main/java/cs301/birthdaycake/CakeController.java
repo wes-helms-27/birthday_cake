@@ -15,6 +15,7 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
     public CakeController(CakeView thisCakeView) {
         controlView = thisCakeView;
         controlModel = controlView.getCakeModel();
+
     }
 
     @Override
@@ -48,10 +49,17 @@ public class CakeController implements View.OnClickListener, CompoundButton.OnCh
         //no nesecita
     }
 
+
+    /** whenever the user touches the surface view */
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        controlView.setRectX(event.getX());
-        controlView.setRectY(event.getY());
+    public boolean onTouch(View view, MotionEvent motionEvent) {
+        Log.d("face", "touch!");
+        this.controlView.touchx = motionEvent.getX();
+        this.controlView.touchy = motionEvent.getY();
+
+        controlView.setRectX(motionEvent.getX());
+        controlView.setRectY(motionEvent.getY());
+
         controlView.invalidate();
 
         return false;
